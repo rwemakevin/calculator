@@ -4,102 +4,120 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Tektur', cursive;
 }
 
 .container {
-  width: 25%;
+  width: 350px;
   margin: 100px auto 0 auto;
   padding: 20px;
-  border: 1px solid green;
+  
 }
 
 .calculator {
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: rgb(54, 54, 54);
   padding: 20px;
+  box-shadow: rgba(107, 95, 95, 0.25) 0px 25px 50px -12px;
 }
 
 .display {
   background-color: rgb(124, 153, 65);
-  border-radius: 5px;
-  padding: 5px 5px;
-  margin: 0 5px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 10px 0 25px 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .upper-display {
-  border: 1px solid red;
+  
   text-align: right;
 }
 
 .lower-display {
-  border: 1px solid yellow;
+  
   text-align: right;
   margin-top: 10px;
-  font-weight: bold;
-  font-size: 35px;
+  font-weight: 700;
+  font-size: 50px;
 }
 
 .flex-container-1 {
-  border: 1px solid purple;
-  padding: 5px 0;
-  margin: 5px 0;
+  
+  padding: 2px 0;
+  margin: 2px 0;
   display: flex;
   justify-content: space-between;
+  
 }
 
 .button {
   flex: 1;
   text-align: center;
-  border: 1px solid black;
-  margin: 0 5px;
+  border: 2px solid rgb(129, 129, 129);
+  margin: 0 2px;
   padding: 5px 0;
   background-color: rgb(105, 105, 105);
   color: white;
   font-weight: bold;
+  border-radius: 5px;
+  box-shadow: rgba(153, 196, 99, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.button:hover {
+  border: 2px solid white;
+  transition: all 0.3s ease-in;
+  background-color: rgb(41, 41, 41);
+  transform: scale(0.97);
 }
 
 .left-items {
   flex: 3;
-  border: 1px solid yellow;
+ 
+  
 }
 
 .right-items {
   flex: 1;
-  border: 1px solid green;
-  padding: 5px 0;
-}
-
-.left-items-button-1 {
   display: flex;
-  padding: 5px 0;
-  margin: 5px 0;
+  justify-items: center;
+ 
+  
+  
 }
 
-.left-items-button-2 {
+.row {
   display: flex;
-  border: 1px solid yellow;
-  margin: 5px 0;
+  
 }
 
-.zero-button {
+.button.one {
   flex: 2;
 }
 
-.decimal-button {
+.button.two {
   flex: 1;
 }
 
-.zero-button,
-.decimal-button {
-  text-align: center;
-  border: 1px solid black;
-  margin: 0 5px;
-  padding: 5px 0;
-  background-color: rgb(105, 105, 105);
-  color: white;
-  font-weight: bold;
+.mt-4{
+  margin-top: 4px;
 }
 
-.right-items > .button {
-  height: 100%;
+.flex {
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
