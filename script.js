@@ -1,82 +1,84 @@
-const point = document.querySelector("#point.button")
-const pointValue = point.textContent;
+let currentInput = "";
+let result = 0;
+let currentOperator = "";
 
-const zero = document.querySelector("#zero.button")
-const zeroValue = zero.textContent;
-zero.addEventListener("click",() => {
-    console.log(zeroValue)
-})
-const num1 = document.querySelector("#num1.button")
-const num1Value = num1.textContent;
-num1.addEventListener("click", ()=> test(num1Value))
+let upperDisplay = document.getElementById("typing2")
 
-const num2 = document.querySelector("#num2.button")
-const num2Value = num2.textContent;
-num2.addEventListener("click", ()=> test(num2Value))
+//Function to update the display
+function updateInput() {
+    document.getElementById("typing").textContent = currentInput;
+  }
 
-const num3 = document.querySelector("#num3.button")
-const num3Value = num3.textContent;
-num3.addEventListener("click", ()=> test(num3Value))
-
-const num4 = document.querySelector("#num4.button")
-const num4Value = num4.textContent;
-num4.addEventListener("click", ()=> test(num4Value))
-
-const num5 = document.querySelector("#num5.button")
-const num5Value = num5.textContent;
-num5.addEventListener("click", ()=> test(num5Value))
-
-const num6 = document.querySelector("#num6.button")
-const num6Value = num6.textContent;
-num6.addEventListener("click", ()=> test(num6Value))
-
-
-const num7 = document.querySelector("#num7.button")
-const num7Value = num7.textContent;
-num7.addEventListener("click", ()=> test(num7Value))
-
-const num8 = document.querySelector("#num8.button")
-const num8Value = num8.textContent;
-num8.addEventListener("click", ()=> test(num8Value))
-
-
-const num9 = document.querySelector("#num9.button")
-const num9Value = num9.textContent;
-num9.addEventListener("click", ()=> test(num9Value))
-
-const add = document.querySelector("#add.button")
-const addValue = add.textContent;
-add.addEventListener("click", ()=> test(addValue))
-
-const substract = document.querySelector("#substract.button")
-const substractValue = substract.textContent;
-substract.addEventListener("click", ()=> test(substractValue))
-
-const multiply = document.querySelector("#multiply.button")
-const multiplyValue = multiply.textContent;
-multiply.addEventListener("click", ()=> test(multiplyValue))
-
-const divide = document.querySelector("#divide.button")
-const divideValue = divide.textContent;
-divide.addEventListener("click", ()=> test(divideValue))
-
-const equal = document.querySelector("#equal.button")
-const equalValue = equal.textContent;
-equal.addEventListener("click", ()=> test(equalValue))
-
-const clear1 = document.querySelector("#clear1.button")
-
-const clear2 = document.querySelector("#clear2.button")
-
-const typing = document.getElementById("typing")
-
-const displayTying = (arg) => {
-    
-    typing.textContent += arg;
-
+// Function to handle number  clicks
+function handleNumberClick(number) {
+currentInput += number;
+updateInput();
 }
 
-const test = (arg) => {
-    console.log(arg)
-    displayTying(arg)
-}
+  // Function to handle operator button clicks
+  function handleOperatorClick(operator) {
+    if (currentInput !== "") {
+      if (currentOperator === "+") {
+        result += parseFloat(currentInput);
+      } else if (currentOperator === "-") {
+        result -= parseFloat(currentInput);
+      } else if (currentOperator === "*") {
+        result *= parseFloat(currentInput);
+      } else if (currentOperator === "/") {
+        result /= parseFloat(currentInput);
+      } else {
+        result = parseFloat(currentInput);
+      }
+    }
+    upperDisplay.textContent = currentInput;
+    currentInput = "";
+    currentOperator = operator;
+    updateInput();
+  }
+
+
+   // Function to handle the equals button click
+   function handleEqualsClick() {
+    handleOperatorClick("");
+    currentInput = result.toString();
+    updateInput();
+  }
+
+
+  // Function to clear the calculator
+  function clearCalculator() {
+    currentInput = "";
+    result = 0;
+    currentOperator = "";
+    updateInput();
+    upperDisplay.textContent = 0;
+  }
+
+  // Function to reload the calculator
+  function clearCalculator2() {
+    location.reload()
+  }
+
+   // Attach click event listeners to number buttons
+   document.querySelectorAll(".button.number").forEach(button => {
+    button.addEventListener("click", function() {
+      handleNumberClick(button.textContent);
+    });
+  });
+
+  // Attach click event listeners to operator buttons
+  document.querySelectorAll(".button.operator").forEach(button => {
+    button.addEventListener("click", function() {
+      handleOperatorClick(button.textContent);
+      
+    });
+  });
+
+   // Attach click event listener to the equals button
+   document.getElementById("equals").addEventListener("click", handleEqualsClick);
+
+      // Attach click event listener to the clear button
+    document.getElementById("clear").addEventListener("click", clearCalculator);
+
+// Attach click event listener to the reload button
+document.getElementById("clear2").addEventListener("click", clearCalculator2);
